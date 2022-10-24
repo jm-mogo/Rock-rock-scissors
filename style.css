@@ -2,13 +2,17 @@
 
 .game {
     text-align: center;
+    background-color: #20262c;
+    padding-bottom: 300px;
+    margin-left: -8px;
+    margin-right: -8px;
 }
 
 .title {
-    background-color: #17202A;
+    background-color: #0d1218;
     margin-top: -22px;
-    margin-left: -10px;
-    margin-right: -10px;
+    margin-left: -8px;
+    margin-right: -8px;
     padding-top: 40px;
     padding-bottom: 30px;
 }
@@ -19,10 +23,33 @@
     font-family: 'Press Start 2P';
 }
 
+.score,
+.result-section {
+    color: #F7F9F9;
+    font-size: 32px;
+    font-family: Helvetica;
+}
+
 .score {
     padding-bottom: 20px;
 }
 
+.gameSection {
+    display: flex;
+    justify-content: center;
+    
+}
+
 .gameSection button {
     font-size: 50px;
+    padding: 22px;
+    margin: 10px;
+    border-style: none;
+    border-radius: 10%;
 }
+
+#btn-scissors {
+    padding-left: 26px;
+    padding-right: 26px;
+}
+
