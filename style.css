@@ -85,7 +85,6 @@
 .gameSection {
     display: flex;
     justify-content: center;
-    
 }
 
 .gameSection button {
@@ -126,4 +125,54 @@
     color: #F7F9F9;
     font-size: 22px;
     border-style: none;
+}
+
+@media (max-width: 550px) {
+.title h1 {
+    font-size: 18px;
+}
+
+.game {
+    padding-top: 10px;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-bottom: 80px;
+}
+
+.result-section {
+    font-size: 32px;
+}
+
+#smaller {
+    font-size: 18px;
+}
+.restartBtn {
+    padding: 10px;
+}
+.choice {
+    padding-top: 20px;
+    font-size: 62px;
+    display: flex;
+    justify-content: space-around;
+}
+.score {
+    font-size: 22px;
+    padding-bottom: 22px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.score,
+.choice {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.gameSection button {
+    font-size: 40px;
+    padding: 24px;
+    padding-left: 28px;
+    padding-right: 28px;
+    margin: 14px;
+    transition-duration: 0.4s;
+}
 }
