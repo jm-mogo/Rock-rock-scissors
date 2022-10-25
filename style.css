@@ -127,7 +127,7 @@
     border-style: none;
 }
 
-@media (max-width: 550px) {
+@media (max-width: 600px) {
 .title h1 {
     font-size: 18px;
 }
