@@ -161,6 +161,10 @@
     display: flex;
     justify-content: space-around;
 }
+#btn-scissors {
+    padding-left: 30px;
+    padding-right: 30px;
+}
 
 .score,
 .choice {
