@@ -1,12 +1,19 @@
 let playerSelection;
 let computerSelection;
+let playerEmoji;
+let computerEmoji;
 let playerWins = 0;
 let computerWins = 0;
 const btnRock = document.getElementById("btn-rock");
 const btnPaper = document.getElementById("btn-paper");
 const btnScissors = document.getElementById("btn-scissors");
 const resultSection = document.querySelector(".result-section");
+const smaller = document.querySelector("#smaller")
 const score = document.querySelector(".score");
+const choice = document.querySelector(".choice");
+const restartBtn = document.createElement('button')
+restartBtn.classList.add("restartBtn")
+restartBtn.innerHTML = "RESTART"
 
 function game() {
     getPlayerChoice();
@@ -16,17 +23,31 @@ function getPlayerChoice() {
     btnRock.addEventListener('click', rock);
     btnPaper.addEventListener('click', paper);
     btnScissors.addEventListener('click', scissors);
+    restartBtn.addEventListener('click', restartGame)
+}
+
+function restartGame() {
+    location.reload()
 }
 
 function rock() {
+    if (checkWinner()) {
+        return;
+    }
     playerSelection = 1
     getComputerChoice()
 }
 function paper() {
+    if (checkWinner()) {
+        return;
+    }
     playerSelection = 2
     getComputerChoice()
 }
 function scissors() {
+    if (checkWinner()) {
+        return;
+    }
     playerSelection = 3
     getComputerChoice()
 }
@@ -37,6 +58,20 @@ function getComputerChoice() {
     displayResult(playRound());
 }
 
+function checkWinner() {
+    if (playerWins === 5) {
+        resultSection.innerHTML = "<h2>You has won</h1>"
+        resultSection.appendChild(restartBtn)
+        disableHover()
+        return true;
+    } else if (computerWins === 5) {
+        resultSection.innerHTML = "<h2>You has lost</h1>"
+        resultSection.appendChild(restartBtn)
+        disableHover()
+        return true;
+    }
+    return false;
+}
 
 function playRound() {
     if (playerSelection === computerSelection) {
@@ -62,16 +97,43 @@ function playRound() {
     } 
 }
 
-function displayResult(result) {
-    if (result === 'tie') {
-        resultSection.innerHTML = '<p>It a tie</p>';
-    } else if (result === 'player') {
-        resultSection.innerHTML = '<p>Player wins</p>';
+function getEmoji() {
+    if (playerSelection === 1) {
+        playerEmoji = "✊";
+    } else if (playerSelection === 2) {
+        playerEmoji = "✋";
     } else {
-        resultSection.innerHTML = '<p>Computer wins</p>';
+        playerEmoji = "✌";
     }
+
+    if (computerSelection === 1) {
+        computerEmoji = "✊";
+    } else if (computerSelection === 2) {
+        computerEmoji = "✋";
+    } else {
+        computerEmoji = "✌";
+    }
+}
+
+function displayResult(result) {
+    getEmoji()
+    if (result === 'tie') {
+        resultSection.innerHTML = `<p>It's a tie!</p> <p id="smaller">${playerEmoji} ties with ${computerEmoji}</p>`;
+    } else if (result === 'player') {
+        resultSection.innerHTML = `<p>You won!</p> <p id="smaller">${playerEmoji} beats ${computerEmoji}</p>`;
+    } else {
+        resultSection.innerHTML = `<p>You lost!</p> <p id="smaller">${computerEmoji} beats ${playerEmoji}</p>`;
+    }
+
+    choice.innerHTML = `<p>${playerEmoji}</p> <p>${computerEmoji}</p>`
+    score.innerHTML = `<p>Player: ${playerWins}</p> <p>Computer: ${computerWins}</p>`;
     
-    score.textContent = `Player: ${playerWins} wins || Computer: ${computerWins} wins`;
+}
+
+function disableHover() {
+    btnPaper.classList.remove("buttons")
+    btnRock.classList.remove("buttons")
+    btnScissors.classList.remove("buttons")
 }
 
 
