@@ -12,6 +12,7 @@ const smaller = document.querySelector("#smaller")
 const score = document.querySelector(".score");
 const choice = document.querySelector(".choice");
 const restartBtn = document.createElement('button')
+const copyBtn = document.getElementById("copy-btn")
 restartBtn.classList.add("restartBtn")
 restartBtn.innerHTML = "RESTART"
 
@@ -23,11 +24,20 @@ function getPlayerChoice() {
     btnRock.addEventListener('click', rock);
     btnPaper.addEventListener('click', paper);
     btnScissors.addEventListener('click', scissors);
-    restartBtn.addEventListener('click', restartGame)
+    restartBtn.addEventListener('click', restartGame);
+    copyBtn.addEventListener('click', secretMessage);
 }
 
 function restartGame() {
     location.reload()
+}
+
+function secretMessage() {
+    answer = prompt("4 digit password")
+    if (answer === "5264") {
+        resultSection.innerHTML = `<h2>U 4ever</h1> <p id="smaller">24/10/2022</p>`;
+        choice.innerHTML = `<p>✨</p> <p>✨</p>`;
+    }
 }
 
 function rock() {
@@ -127,7 +137,7 @@ function displayResult(result) {
 
     choice.innerHTML = `<p>${playerEmoji}</p> <p>${computerEmoji}</p>`
     score.innerHTML = `<p>Player: ${playerWins}</p> <p>Computer: ${computerWins}</p>`;
-    
+    checkWinner()
 }
 
 function disableHover() {

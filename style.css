@@ -113,12 +113,17 @@
 
 .footer {
     text-align: center;
-    background-color: #20262c;
+    background-color: #1e2730;
     padding: 10px;
     margin-top: -18px;
     margin-bottom: -8px;
     margin-left: -8px;
     margin-right: -8px;
+}
+
+.footer button {
+    background-color: #1e2730;
     color: #F7F9F9;
     font-size: 22px;
+    border-style: none;
 }
