@@ -37,6 +37,7 @@ function secretMessage() {
     if (answer === "5264") {
         resultSection.innerHTML = `<h2>U 4ever</h1> <p id="smaller">24/10/2022</p>`;
         choice.innerHTML = `<p>✨</p> <p>✨</p>`;
+        score.innerHTML = `<p>J</p> <p>K</p>`
     }
 }
 
